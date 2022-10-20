@@ -7,6 +7,7 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+  /*Ajout provisoire des Font*/
   font-family: 'DM Sans',Arial, Helvetica, sans-serif;
 }
 
@@ -19,8 +20,8 @@ body {
   font-family: var(--font-default);
   font-size: 18px;
   /*Correction largeur max conformement à la taille maquette*/
-  max-width: 1440px;
-  /*max-height: 1024px;*/
+  width: 1440px;
+  max-height: 1024px;
   margin: 0 auto;
 }
 
@@ -42,6 +43,7 @@ p {
 .header-logo {
     float: left;
     /*Repositionnement logo*/
+    padding-top: 10px;
     padding-left: 70px;
 }
 
@@ -82,6 +84,8 @@ p {
   display: none;
 }
 
+/*Media queries Barre de Navigation*/
+
 @media screen and (max-width: 768px) {
   .topnav a {display: none;}
   .topnav a.icon {
@@ -104,23 +108,35 @@ p {
   }
 }
 
-
-
  @media screen and (max-width: 540px) {
   .topnav a {display: none;}
   .topnav a.icon {
     float: right;
     display: block;
-    margin-top: -15px;
   }
 } 
 
+/* Media queries Zone Centrale*/
+
+@media screen and (max-width: 768px) {
+  .topnav {
+    position: relative;
+  }
+  .header-logo {
+    position: absolute;
+    margin: 0px;
+    top: 0px;
+    bottom: 0px;
+    left: -50px;
+    padding: 0px 0px 12px 0px; 
+    transform: scale(0.5);
+  }
+}
+  
+
 /*Zone Centrale*/
 main {
-  width: 1200px;
-  height: 650px;
-  display: flex;
-  justify-content: center;
+  width: 83%;
   font-size: 130%;
   font-weight: bolder;
   color: black;
@@ -424,15 +440,16 @@ input[data-error]::after {
   font-size: 16px;
 }
 .hero-section {
+  width: 100%;
   /*Correction hauteur*/
-  min-height: 100%;
+  height: 100%;
   border-radius: 10px;
   display: grid;
-  grid-template-columns: repeat(12, 1fr);
+  grid-template-columns: repeat(2, 1fr);
   /*Repositionnement grid*/
   grid-gap: 80px;
   overflow: hidden;
-  box-shadow: 0 2px 7px 2px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 10px 7px 2px rgba(0, 0, 0, 0.2);
   margin-bottom: 10px;
 }
 .hero-content {
@@ -486,7 +503,7 @@ input[data-error]::after {
   margin-left: 0px;
 }
 .hero-img {
-  width: 700px;
+  width: 100%;
   height: 100%;
   /*Repositionnement grid*/
   grid-column: 2;
@@ -512,15 +529,22 @@ footer {
   padding-right: 2vw;
   margin: 0 20px;
 }
-@media screen and (max-width: 800px) {
+@media screen and (max-width:768px) {
+  body {
+    width: 100%;
+  }
+  main {
+    max-width: 768px;
+  }
   .hero-section {
     display: block;
     box-shadow: unset;
   }
   .hero-content {
+    width: 100%;
     background: #fff;
     color: #000;
-    padding: 20px;
+    padding: 0px;
   }
   .hero-content::after {
     content: unset;
@@ -529,12 +553,15 @@ footer {
     display: none;
   }
   .hero-headline {
-    font-size: 4.5rem;
+    font-size: 30px;
+    font-weight: bold;
     white-space: normal;
+    margin: 0px;
   }
   .hero-text {
     width: unset;
-    font-size: 1.5rem;
+    font-size: 15px;
+    margin-top: 25px;
   }
   .hero-img img {
     border-radius: 10px;
