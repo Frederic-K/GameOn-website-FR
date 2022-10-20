@@ -7,6 +7,7 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+  font-family: 'DM Sans',Arial, Helvetica, sans-serif;
 }
 
 /* Landing Page */
@@ -141,7 +142,7 @@ main {
   margin: auto;
   padding: 2em;
   color: #fff;
-  padding: 0.75rem 2.5rem;
+  /*padding: 0.75rem 2.5rem;*/
   border-radius: 1rem;
   cursor: pointer;
 }
@@ -157,7 +158,7 @@ main {
 }
 
 /* Modal form */
-.button {
+/*.button {
   background: #fe142f;
   margin-top: 0.5em;
   padding: 1em;
@@ -165,7 +166,7 @@ main {
   border-radius: 15px;
   cursor: pointer;
   font-size: 16px;
-}
+}*/
 
 .button:hover {
   background: #3876ac;
@@ -467,16 +468,22 @@ input[data-error]::after {
 .hero-text {
   width: 146%;
   font-weight: normal;
-  margin-top: 57px;
+  /*Correction marges*/
+  margin-top: 65px;
   padding: 0;
 }
 .btn-signup {
   outline: none;
+  /*Correction taille*/
+  width: 200px;
   text-transform: capitalize;
-  font-size: 1.3rem;
+  /*Correction size*/
+  font-size: 1.5rem;
   padding: 15px 23px;
-  margin: 0;
-  margin-top: 59px;
+  /*Correction marges*/
+  /*margin: 0;*/
+  margin-top: 70px;
+  margin-left: 0px;
 }
 .hero-img {
   width: 700px;
