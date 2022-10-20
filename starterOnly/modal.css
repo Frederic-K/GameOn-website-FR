@@ -129,6 +129,10 @@ p {
     padding: 0px 0px 12px 0px; 
     transform: scale(0.5);
   }
+  /*Correction couleur icon barre menu*/
+  .fa-bars {
+    color: red;
+  }
 }
 
 /*Zone Centrale*/
