@@ -502,7 +502,7 @@ input[data-error]::after {
   margin-left: 0px;
 }
 .hero-img {
-  height: 100%;
+  /*width: 100%;*/
   /*position: relative;*/
   /*Repositionnement grid*/
   grid-column: 2/4;
@@ -513,7 +513,7 @@ input[data-error]::after {
   display: block;
   /*position: absolute;
   left: 80px;*/
-  margin-left: 80px;
+  margin-left: 85px;
   padding: 0;
 }
 .copyrights {
@@ -531,12 +531,19 @@ footer {
   padding-right: 2vw;
   margin: 0 20px;
 }
+/*@media screen and (max-width: 850px) {
+    .hero-img img {
+      width: 100%;
+    }
+}*/
 @media screen and (max-width:768px) {
   body {
     width: 100%;
   }
   main {
-    max-width: 768px;
+   width: 100%;
+    margin: 0px auto;
+    padding: 0px 15px;
   }
   .hero-section {
     display: block;
@@ -567,19 +574,22 @@ footer {
     font-size: 12px;
     margin-top: 25px;
   }
+  /*.hero-img {
+    margin: 0 auto;
+  }*/
   .hero-img img {
     border-radius: 10px;
-    margin-top: 40px;
+    margin: 40px auto ;
   }
   .hero-section > .btn-signup {
     display: block;
     width: 150px;
-    margin: 32px auto 10px;
+    margin: 0px auto;
     padding: 8px 15px;
     font-size: 12px;
   }
   .copyrights {
-    margin-top: 10px;
+    margin-top: 25px;
     text-align: center;
     font-size: 12px;
   }
