@@ -23,6 +23,7 @@ body {
   width: 1440px;
   max-height: 1024px;
   margin: 0 auto;
+  padding: 25px;
 }
 
 p {
@@ -58,7 +59,7 @@ p {
   padding: 12px 12px;
   margin: 5px;
   text-decoration: none;
-  font-size: 20px;
+  font-size: 18px;
   font-family: Roboto, sans-serif;
 }
 
@@ -137,7 +138,7 @@ p {
 
 /*Zone Centrale*/
 main {
-  width: 1180px;
+  width: 1150px;
   font-size: 130%;
   font-weight: bolder;
   color: black;
@@ -513,7 +514,7 @@ input[data-error]::after {
   display: block;
   /*position: absolute;
   left: 80px;*/
-  margin-left: 85px;
+  margin-left: 80px;
   padding: 0;
 }
 .copyrights {
