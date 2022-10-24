@@ -443,18 +443,16 @@ input[data-error]::after {
 .hero-section {
   width: 100%;
   /*Correction hauteur*/
-  height: 100%;
+  height: 600px;
   border-radius: 10px;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  /*Repositionnement grid*/
-  grid-gap: 80px;
   overflow: hidden;
   box-shadow: 0 10px 7px 2px rgba(0, 0, 0, 0.2);
   margin-bottom: 10px;
 }
 .hero-content {
-  width: 100%;
+  width: 424px;
   /*height: 100%;*/
   padding: 51px 67px;
   /*Repositionnement grid*/
@@ -483,7 +481,7 @@ input[data-error]::after {
   white-space: nowrap;
 }
 .hero-text {
-  width: 146%;
+  width: 400px;
   font-weight: normal;
   /*Correction marges*/
   margin-top: 65px;
@@ -496,7 +494,7 @@ input[data-error]::after {
   text-transform: capitalize;
   /*Correction size*/
   font-size: 1.5rem;
-  padding: 15px 23px;
+  padding: 10px 23px;
   /*Correction marges*/
   /*margin: 0;*/
   margin-top: 70px;
@@ -504,13 +502,12 @@ input[data-error]::after {
 }
 .hero-img {
   width: 100%;
-  height: 100%;
   /*Repositionnement grid*/
   grid-column: 2;
 }
 .hero-img img {
   /*Correction étirement img*/
-  height: 100%;
+  width: 100%;
   display: block;
   padding: 0;
 }
@@ -537,8 +534,8 @@ footer {
     max-width: 768px;
   }
   .hero-section {
-    width: 100%;
     display: block;
+    height: 100%;
     box-shadow: unset;
   }
   .hero-content {
@@ -561,30 +558,25 @@ footer {
     margin: 0px;
   }
   .hero-text {
-    width: 100%;
-    font-size: 15px;
+    width: unset;
+    font-size: 12px;
     margin-top: 25px;
   }
   .hero-img img {
-    width: 100%;
     border-radius: 10px;
     margin-top: 40px;
   }
   .hero-section > .btn-signup {
-    width: 50%;
     display: block;
-    margin-top: 30px;
-    margin-right: auto;
-    margin-bottom: 20px;
-    margin-left: auto;
-    padding: 8px 0px;
-    border-radius: 10px;
-    font-size: 15px;
+    width: 150px;
+    margin: 32px auto 10px;
+    padding: 8px 15px;
+    font-size: 12px;
   }
   .copyrights {
-    margin: 0px auto;
-    font-size: 10px;
+    margin-top: 10px;
     text-align: center;
+    font-size: 12px;
   }
 }
 
