@@ -14,7 +14,11 @@ const formData = document.querySelectorAll(".formData");
 // add elements to DOM
 const modalBground = document.getElementById("modalBground")
 const modalContent = document.getElementById("modalContent");
+const modalBody = document.getElementById("modal-body");
+const modalForm = document.getElementById("modalform");
 const modalCloseBtn = document.getElementById("modalCloseBtn");
+const thxPopup = document.getElementById("thxPopup");
+const btnSubmit = document.getElementById("btn-submit");
 
 // launch modal event
 modalBtn.forEach((btn) => btn.addEventListener("click", launchModal));
@@ -29,3 +33,5 @@ modalCloseBtn.addEventListener("click", function() {
   modalBground.style.display = "none";
   }
 );
+
+// thank you pop-up 
