@@ -51,13 +51,13 @@ modalCloseBtn.addEventListener("click", function() {
 );
 
 // Thank you pop-up 
-for (const btnSubmit of btnSubmits) {
+/*for (const btnSubmit of btnSubmits) {
 btnSubmit.addEventListener("click", function(e) {
   e.preventDefault();
   modalForm.style.display = "none";
   thxPopup.style.display = "flex";
   })
-};
+};*/
 
 // Fermeture de thank you pop up
 thxPopupBtn.addEventListener("click", function() {
@@ -72,17 +72,26 @@ function regexTestFirstName(input) {
   return regex.test(input);
 };
 
+/*function firstNameCheck() {
+  let firstNameValue = firstName.value;
+  if (regexTestFirstName(firstNameValue) === true) {
+    errorMessages[0].classList.remove("hiddenMessage");
+  } else {
+    errorMessages[0].classList.add("hiddenMessage");
+  }
+};*/
 function firstNameCheck() {
   let firstNameValue = firstName.value;
   if (regexTestFirstName(firstNameValue) === true) {
-    errorMessages[0].classList.remove("hidden");
+    errorMessages[0].style.display = "none";
   } else {
-    errorMessages[0].classList.add("hidden");
-  }
+    errorMessages[0].style.display = "flex";
+   }
 };
-
 // Lancement des fonctions de contrôle au click "submitForm"
-
-function submitForm() {
+function submitSouscription() {
   firstNameCheck();
-}
+};
+modalForm.addEventListener("submit", function(event) {
+    event.preventDefault();
+  });
