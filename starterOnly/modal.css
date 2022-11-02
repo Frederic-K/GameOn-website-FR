@@ -558,7 +558,8 @@ input[data-error]::after {
 }
 
 .errorMessage {
-  display: flex;
+  font-size: small;
+  color: red;
 }
 
 .hidden {
