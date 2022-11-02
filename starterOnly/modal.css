@@ -529,13 +529,13 @@ input[data-error]::after {
   display: none;
 }
 
-#modalForm {
+/*#modalForm {
   display: none;
-}
+}*/
 
 #thxPopup {
   height: 700px;
-  display: flex;
+  display: none;
   flex-direction: column;
   justify-content: center;
   align-items: center;
