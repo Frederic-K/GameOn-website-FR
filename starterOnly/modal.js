@@ -29,6 +29,7 @@ const errorMessages = document.getElementsByClassName("errorMessage");
 const firstName = document.getElementById("first");
 const lastName = document.getElementById("last");
 const email = document.getElementById("email");
+const birthDate = document.getElementById("birthdate");
 
 /* launch modal event
 modalBtn.forEach((btn) => btn.addEventListener("click", launchModal));*/
@@ -75,7 +76,7 @@ function lastNameCheck() {
     errorMessages[1].classList.remove("hidden");
   }
 };
-//Vérification du mail
+// Vérification du mail
 function regexTestEmail(input) {
   let regex = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/g;
   return regex.test(input);
@@ -89,11 +90,26 @@ function emailCheck() {
   }
 };
 
+// Vérifictaion de la date de naissance
+function regexBirthdate(input) {
+  let regex = /^\d{2}-\d{2}-\d{4}$/g;
+  return regex.test(input);
+}
+function birthdateCheck() {
+  let birthdateValue = birthDate.value;
+  if (regexBirthdate(birthdateValue) === true) {
+    errorMessages[3].classList.add("hidden");
+  } else {
+    errorMessages[3].classList.remove("hidde");
+  }
+};
+
 // Lancement des fonctions de contrôle au click "submitForm"
 function submitSouscription() {
   firstNameCheck();
   lastNameCheck();
   emailCheck();
+  birthdateCheck();
 };
 modalForm.addEventListener("submit", function(event) {
     event.preventDefault();
