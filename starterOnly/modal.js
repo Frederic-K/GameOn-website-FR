@@ -29,7 +29,9 @@ const errorMessages = document.getElementsByClassName("errorMessage");
 const firstName = document.getElementById("first");
 const lastName = document.getElementById("last");
 const email = document.getElementById("email");
-const birthDate = document.getElementById("birthdate");
+const birthdate = document.getElementById("birthdate");
+
+const checkboxCGU = document.getElementById("checkbox1");
 
 /* launch modal event
 modalBtn.forEach((btn) => btn.addEventListener("click", launchModal));*/
@@ -45,7 +47,7 @@ for(const modalBtn of modalBtns) {
   modalBground.style.display = "block";  
   })
 };
-// Fermeture du modal 
+// Fermeture du modal via croix en haut à droite
 modalCloseBtn.addEventListener("click", function() {
   modalBground.style.display = "none";
   }
@@ -96,11 +98,20 @@ function regexBirthdate(input) {
   return regex.test(input);
 }
 function birthdateCheck() {
-  let birthdateValue = birthDate.value;
+  let birthdateValue = birthdate.value;
   if (regexBirthdate(birthdateValue) === true) {
     errorMessages[3].classList.add("hidden");
   } else {
-    errorMessages[3].classList.remove("hidde");
+    errorMessages[3].classList.remove("hidden");
+  }
+};
+
+// Vérification checkbox "checked" des Conditions Générales d'Utilisation
+function cguCheck() {
+  if (checkboxCGU.checked) {
+    errorMessages[4].classList.add("hidden");
+  } else {
+    errorMessages[4].classList.remove("hidden");
   }
 };
 
@@ -110,6 +121,7 @@ function submitSouscription() {
   lastNameCheck();
   emailCheck();
   birthdateCheck();
+  cguCheck();
 };
 modalForm.addEventListener("submit", function(event) {
     event.preventDefault();
