@@ -25,8 +25,10 @@ const btnSubmits = document.getElementsByClassName("btn-submit");
 const thxPopup = document.getElementById("thxPopup");
 const thxPopupBtn = document.getElementById("thxPopup__btn");
 
-const firstName = document.getElementById("first");
 const errorMessages = document.getElementsByClassName("errorMessage");
+const firstName = document.getElementById("first");
+const lastName = document.getElementById("last");
+const email = document.getElementById("email");
 
 /* launch modal event
 modalBtn.forEach((btn) => btn.addEventListener("click", launchModal));*/
@@ -42,13 +44,62 @@ for(const modalBtn of modalBtns) {
   modalBground.style.display = "block";  
   })
 };
-
 // Fermeture du modal 
 modalCloseBtn.addEventListener("click", function() {
   modalBground.style.display = "none";
   }
 );
 
+// Contrôle "Never trust user input!"
+// Vérification du prénom
+function regexTestName(input) {
+  let regex = /([A-Za-zéùàôöêëèçà]{1,}[A-Za-z-'éùàôöêëèçà]{2,30})/g;
+  return regex.test(input);
+};
+function firstNameCheck() {
+  let firstNameValue = firstName.value;
+  if (regexTestName(firstNameValue) === true) {
+    errorMessages[0].classList.add("hidden");
+  } else {
+    errorMessages[0].classList.remove("hidden");
+  }
+  /* j'ai vue des fonctions de test avec RegEx qui indique "return false;"
+  après le "else" ...*/
+};
+// Vérification du nom 
+function lastNameCheck() {
+  let lastNameValue = lastName.value;
+  if (regexTestName(lastNameValue) === true) {
+    errorMessages[1].classList.add("hidden");
+  } else {
+    errorMessages[1].classList.remove("hidden");
+  }
+};
+//Vérification du mail
+function regexTestEmail(input) {
+  let regex = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/g;
+  return regex.test(input);
+};
+function emailCheck() {
+  let emailValue = email.value;
+  if (regexTestEmail(emailValue) === true) {
+    errorMessages[2].classList.add("hidden");
+  } else {
+    errorMessages[2].classList.remove("hidden");
+  }
+};
+
+// Lancement des fonctions de contrôle au click "submitForm"
+function submitSouscription() {
+  firstNameCheck();
+  lastNameCheck();
+  emailCheck();
+};
+modalForm.addEventListener("submit", function(event) {
+    event.preventDefault();
+  });
+
+  
 // Thank you pop-up 
 /*for (const btnSubmit of btnSubmits) {
 btnSubmit.addEventListener("click", function(e) {
@@ -57,40 +108,9 @@ btnSubmit.addEventListener("click", function(e) {
   thxPopup.style.display = "flex";
   })
 };*/
-
 // Fermeture de thank you pop up
 thxPopupBtn.addEventListener("click", function() {
   modalBground.style.display = "none";
   }
 );
 
-// Validation saisie avec Regex
-// Vérification du prénom
-function regexTestFirstName(input) {
-  let regex = /([A-Za-zéùàôöêëèçà]{1,}[A-Za-z-'éùàôöêëèçà]{2,30})/g;
-  return regex.test(input);
-};
-
-function firstNameCheck() {
-  let firstNameValue = firstName.value;
-  if (regexTestFirstName(firstNameValue) === true) {
-    errorMessages[0].classList.add("hidden");
-  } else {
-    errorMessages[0].classList.remove("hidden");
-  }
-};
-/*function firstNameCheck() {
-  let firstNameValue = firstName.value;
-  if (regexTestFirstName(firstNameValue) === true) {
-    errorMessages[0].style.display = "none";
-  } else {
-    errorMessages[0].style.display = "flex";
-   }
-};*/
-// Lancement des fonctions de contrôle au click "submitForm"
-function submitSouscription() {
-  firstNameCheck();
-};
-modalForm.addEventListener("submit", function(event) {
-    event.preventDefault();
-  });
