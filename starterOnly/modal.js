@@ -29,8 +29,8 @@ const errorMessages = document.getElementsByClassName("errorMessage");
 const firstName = document.getElementById("first");
 const lastName = document.getElementById("last");
 const email = document.getElementById("email");
-const birthdate = document.getElementById("birthdate");
-
+//const birthdate = document.getElementById("birthdate");
+const checkboxLocations = document.getElementsByClassName("checkbox--location");
 const checkboxCGU = document.getElementById("checkbox1");
 
 /* launch modal event
@@ -92,26 +92,48 @@ function emailCheck() {
   }
 };
 
-// Vérifictaion de la date de naissance
-function regexBirthdate(input) {
+/* Vérifictaion de la date de naissance
+function regexTestBirthdate(input) {
   let regex = /^\d{2}-\d{2}-\d{4}$/g;
   return regex.test(input);
 }
 function birthdateCheck() {
   let birthdateValue = birthdate.value;
-  if (regexBirthdate(birthdateValue) === true) {
+  if (regexTestBirthdate(birthdateValue) === true) {
     errorMessages[3].classList.add("hidden");
   } else {
     errorMessages[3].classList.remove("hidden");
   }
+};*/
+
+// Vérifictaion du choix du lieu du tournoi
+
+/*function locationCheck () {
+  for(const checkboxLocation of checkboxLocations) {
+    if (checkboxLocation.checked) {
+      errorMessages[4].classList.add("hidden");
+    } else {
+      errorMessages[4].classList.remove("hidden");
+    }
+  } 
+};*/
+function locationCheck() {
+  for(let checkboxLocation of checkboxLocations) {
+    if (checkboxLocation[0].checked) {
+      errorMessages[4].classList.add("hidden");
+    } else {
+      errorMessages[4].classList.remove("hidden");
+    }
+  }
 };
+
 
 // Vérification checkbox "checked" des Conditions Générales d'Utilisation
 function cguCheck() {
   if (checkboxCGU.checked) {
-    errorMessages[4].classList.add("hidden");
+    errorMessages[5].classList.add("hidden");
   } else {
-    errorMessages[4].classList.remove("hidden");
+    errorMessages[5].classList.remove("hidden");
   }
 };
 
@@ -120,8 +142,9 @@ function submitSouscription() {
   firstNameCheck();
   lastNameCheck();
   emailCheck();
-  birthdateCheck();
+  //birthdateCheck();
   cguCheck();
+  locationCheck();
 };
 modalForm.addEventListener("submit", function(event) {
     event.preventDefault();
