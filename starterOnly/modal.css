@@ -558,14 +558,14 @@ input[data-error]::after {
 }
 
 .errorMessage {
-  display: none;
+  /*display: none;*/
   font-size: small;
   color: red;
 }
 
-/*.hidden {
+.hidden {
   display: none;
-}*/
+}
 
 footer {
   padding-left: 2vw;

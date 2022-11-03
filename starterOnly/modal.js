@@ -27,7 +27,6 @@ const thxPopupBtn = document.getElementById("thxPopup__btn");
 
 const firstName = document.getElementById("first");
 const errorMessages = document.getElementsByClassName("errorMessage");
-const hiddenMessage = document.getElementsByClassName("hidden");
 
 /* launch modal event
 modalBtn.forEach((btn) => btn.addEventListener("click", launchModal));*/
@@ -72,22 +71,22 @@ function regexTestFirstName(input) {
   return regex.test(input);
 };
 
-/*function firstNameCheck() {
+function firstNameCheck() {
   let firstNameValue = firstName.value;
   if (regexTestFirstName(firstNameValue) === true) {
-    errorMessages[0].classList.remove("hiddenMessage");
+    errorMessages[0].classList.add("hidden");
   } else {
-    errorMessages[0].classList.add("hiddenMessage");
+    errorMessages[0].classList.remove("hidden");
   }
-};*/
-function firstNameCheck() {
+};
+/*function firstNameCheck() {
   let firstNameValue = firstName.value;
   if (regexTestFirstName(firstNameValue) === true) {
     errorMessages[0].style.display = "none";
   } else {
     errorMessages[0].style.display = "flex";
    }
-};
+};*/
 // Lancement des fonctions de contrôle au click "submitForm"
 function submitSouscription() {
   firstNameCheck();
