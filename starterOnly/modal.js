@@ -18,19 +18,20 @@ const formDatas = document.getElementsByClassName("formData");
 // add elements to DOM
 const modalBground = document.getElementById("modalBground")
 const modalContent = document.getElementById("modalContent");
-const modalBody = document.getElementById("modal-body");
+//const modalBody = document.getElementById("modal-body");
 const modalForm = document.getElementById("modalForm");
 const modalCloseBtn = document.getElementById("modalCloseBtn");
 const btnSubmits = document.getElementsByClassName("btn-submit");
 const thxPopup = document.getElementById("thxPopup");
 const thxPopupBtn = document.getElementById("thxPopup__btn");
-
+//const radioLocations = document.querySelectorAll('input[name = "location"]');
+const radioLocations = document.getElementsByClassName("checkbox--location");
 const errorMessages = document.getElementsByClassName("errorMessage");
 const firstName = document.getElementById("first");
 const lastName = document.getElementById("last");
 const email = document.getElementById("email");
-//const birthdate = document.getElementById("birthdate");
-const checkboxLocations = document.getElementsByClassName("checkbox--location");
+const birthdate = document.getElementById("birthdate");
+
 const checkboxCGU = document.getElementById("checkbox1");
 
 /* launch modal event
@@ -42,6 +43,7 @@ function launchModal() {
 }*/
 
 // Lancement du modal
+
 for(const modalBtn of modalBtns) {
   modalBtn.addEventListener("click", function() {
   modalBground.style.display = "block";  
@@ -54,7 +56,9 @@ modalCloseBtn.addEventListener("click", function() {
 );
 
 // Contrôle "Never trust user input!"
+
 // Vérification du prénom
+
 function regexTestName(input) {
   let regex = /([A-Za-zéùàôöêëèçà]{1,}[A-Za-z-'éùàôöêëèçà]{2,30})/g;
   return regex.test(input);
@@ -69,7 +73,9 @@ function firstNameCheck() {
   /* j'ai vue des fonctions de test avec RegEx qui indique "return false;"
   après le "else" ...*/
 };
+
 // Vérification du nom 
+
 function lastNameCheck() {
   let lastNameValue = lastName.value;
   if (regexTestName(lastNameValue) === true) {
@@ -78,7 +84,9 @@ function lastNameCheck() {
     errorMessages[1].classList.remove("hidden");
   }
 };
+
 // Vérification du mail
+
 function regexTestEmail(input) {
   let regex = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/g;
   return regex.test(input);
@@ -106,39 +114,66 @@ function birthdateCheck() {
   }
 };*/
 
-
-
-// Vérifictaion du choix du lieu du tournoi
-
-/*function locationCheck () {
-  for(const checkboxLocation of checkboxLocations) {
-    if (checkboxLocation.checked) {
-      errorMessages[4].classList.add("hidden");
-    } else {
-      errorMessages[4].classList.remove("hidden");
-    }
-  } 
-};*/
-/*<<<<semble vouloir que toutes radio soit checked...>>>>>>>>>>>>> */
-
-function locationCheck() {
-  if (document.querySelector('input[name = "location"]:checked')) {
-    errorMessages[4].classList.add("hidden");
+// Vérification de la date de naissance
+//Fonctionnelle avec age min
+/*function birthdateCheck() {
+  let birthdayInput = new Date(birthdate.value);
+  let todayDate = new Date();
+  let minAge = 12;
+  let birthdayYear = birthdayInput.getFullYear() + minAge;
+  let birthdayMonth = birthdayInput.getMonth() + 1;
+  let birthdayDay = birthdayInput.getDay() + 1;
+  let todayDateYear = todayDate.getFullYear();
+  let todayDateMonth = todayDate.getMonth() + 1;
+  let todayDateDay = todayDate.getDay() + 1;
+  let birthdayVar = birthdayYear + birthdayMonth + birthdayDay;
+  let todayVar = todayDateYear + todayDateMonth + todayDateDay;
+  console.log (birthdayVar);
+  console.log (todayVar);
+  if (todayVar > birthdayVar) {
+    errorMessages[3].classList.add("hidden");
   } else {
-    errorMessages[4].classList.remove("hidden");
+    errorMessages[3].classList.remove("hidden");
+  }
+};*/
+
+//TODO : vérification par récupération des jj mm et aaaa via split
+
+// Vérification de la date de naissance
+// Semble être déconseillé l'utilisdation de la parse Date.parse selon le MDN
+// Seul la norme ISO 8601 format (YYYY-MM-DDHH:mm:ss.sssZ) est explicitement supportée.
+// Age min 12ans = 378432000000 millisecondes mais 378691200000 si 12ans calculé depuis le 1/1/1970.
+
+function birthdateCheck() {
+  let ageMin = 378691200000;// 12 ans à partir du 1/1/1970 // 378432000000 = 12ans en millisecondes
+  let birthdateVar = Date.parse(birthdate.value) + ageMin; // trans birthdate.value (qui est au format YYYY-MM-DD donc normalement ISO 8601) en millisecondes depuis le 1/1/1970
+  let todayDateVar = Date.now();
+  console.log(birthdateVar);
+  console.log(todayDateVar);
+  if (todayDateVar > birthdateVar) {
+    errorMessages[3].classList.add("hidden");
+  } else {
+    errorMessages[3].classList.remove("hidden");
   }
 };
 
+// Vérifictaion du choix du lieu du tournoi
 
-/*function locationCheck() {
-  if (checkboxLocations[0].checked) {
-    errorMessages[4].classList.add("hidden");
-  } else {
-    errorMessages[4].classList.remove("hidden");
+function locationCheck() {
+  for (const radioLocation of radioLocations) {
+    if (radioLocation.checked) {
+      errorMessages[4].classList.add("hidden");
+      breack;
+    } else {
+      errorMessages[4].classList.remove("hidden");
+    }
   }
-};*/
+};
+/*<<< j'ai une erreur ds la console : Uncaught ReferenceError: breack is not defined ???
+mais je ne sais pas si c'est labsence de label qui pose pb...>>>>>*/
 
-// Vérification checkbox "checked" des Conditions Générales d'Utilisation
+// Vérification consentement Conditions Générales d'Utilisation
+
 function cguCheck() {
   if (checkboxCGU.checked) {
     errorMessages[5].classList.add("hidden");
@@ -148,20 +183,25 @@ function cguCheck() {
 };
 
 // Lancement des fonctions de contrôle au click "submitForm"
+
 function submitSouscription() {
   firstNameCheck();
   lastNameCheck();
   emailCheck();
-  //birthdateCheck();
-  cguCheck();
+  birthdateCheck();
   locationCheck();
+  cguCheck();
 };
+
+//Prévention propagation 
+
 modalForm.addEventListener("submit", function(event) {
     event.preventDefault();
   });
 
   
 // Thank you pop-up 
+
 /*for (const btnSubmit of btnSubmits) {
 btnSubmit.addEventListener("click", function(e) {
   e.preventDefault();
@@ -169,7 +209,9 @@ btnSubmit.addEventListener("click", function(e) {
   thxPopup.style.display = "flex";
   })
 };*/
+
 // Fermeture de thank you pop up
+
 thxPopupBtn.addEventListener("click", function() {
   modalBground.style.display = "none";
   }
