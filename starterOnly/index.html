@@ -67,8 +67,7 @@
               name="reserve"
               action="index.html"
               method="get"
-              onsubmit="return validate();"
-            >
+              onsubmit="submitSouscription()">
               <div
                 class="formData">
                 <label>Prénom</label><br>
@@ -78,7 +77,11 @@
                   id="first"
                   name="first"
                   minlength="2"
+                  required
                 /><br>
+                <div class="errorMessage hidden">
+                  Merci de renseigner plus de 2 caractères.<br>Caractères authorisés : A-Z a-z -'
+                </div>
               </div>
               <div
                 class="formData">
@@ -88,7 +91,11 @@
                   type="text"
                   id="last"
                   name="last"
+                  required
                 /><br>
+                <div class="errorMessage hidden">
+                  Merci de renseigner plus de 2 caractères.<br>Caractères authorisés : A-Z a-z -'
+                </div>
               </div>
               <div
                 class="formData">
@@ -98,7 +105,11 @@
                   type="email"
                   id="email"
                   name="email"
+                  required
                 /><br>
+                <div class="errorMessage hidden">
+                  Email invalide - Merci de vérifier l'email.
+                </div>                
               </div>
               <div
                 class="formData">
@@ -108,18 +119,22 @@
                   type="date"
                   id="birthdate"
                   name="birthdate"
+                  required
                 /><br>
+                <div class="errorMessage hidden">
+                  Date invalide - Merci de renseigner votre date de naissance.
+                </div>
               </div>
               <div
                 class="formData">
                 <label>À combien de tournois GameOn avez-vous déjà participé ?</label><br>
-                <input type="number" class="text-control" id="quantity" name="quantity" min="0" max="99">
+                <input type="number" class="text-control" id="quantity" name="quantity" min="0" max="99" required>
               </div>
               <p class="text-label">A quel tournoi souhaitez-vous participer cette année ?</p>
               <div
                 class="formData">
                 <input
-                  class="checkbox-input"
+                  class="checkbox-input checkbox--location"
                   type="radio"
                   id="location1"
                   name="location"
@@ -130,7 +145,7 @@
                   New York</label
                 >
                 <input
-                  class="checkbox-input"
+                  class="checkbox-input checkbox--location"
                   type="radio"
                   id="location2"
                   name="location"
@@ -141,7 +156,7 @@
                   San Francisco</label
                 >
                 <input
-                  class="checkbox-input"
+                  class="checkbox-input checkbox-location"
                   type="radio"
                   id="location3"
                   name="location"
@@ -152,7 +167,7 @@
                   Seattle</label
                 >
                 <input
-                  class="checkbox-input"
+                  class="checkbox-input checkbox--location"
                   type="radio"
                   id="location4"
                   name="location"
@@ -163,7 +178,7 @@
                   Chicago</label
                 >
                 <input
-                  class="checkbox-input"
+                  class="checkbox-input checkbox--location"
                   type="radio"
                   id="location5"
                   name="location"
@@ -174,7 +189,7 @@
                   Boston</label
                 >
                 <input
-                  class="checkbox-input"
+                  class="checkbox-input checkbox--location"
                   type="radio"
                   id="location6"
                   name="location"
@@ -184,21 +199,22 @@
                   <span class="checkbox-icon"></span>
                   Portland</label
                 >
+                <div class="errorMessage hidden">
+                  Merci d'indiquer votre souhait.
+                </div>
               </div>
 
               <div
                 class="formData">
-                <input
-                  class="checkbox-input"
-                  type="checkbox"
-                  id="checkbox1"
-                  checked
-                />
-                <label class="checkbox2-label" for="checkbox1" required>
+                <input class="checkbox-input" type="checkbox" id="checkbox1"/>
+                <label class="checkbox2-label" for="checkbox1">
                   <span class="checkbox-icon"></span>
                   J'ai lu et accepté les conditions d'utilisation.
                 </label>
                 <br>
+                <div class="errorMessage hidden">
+                  Veuillez accepter les conditions générales d'utilisation.
+                </div>
                 <input class="checkbox-input" type="checkbox" id="checkbox2" />
                 <label class="checkbox2-label" for="checkbox2">
                   <span class="checkbox-icon"></span>
@@ -210,7 +226,7 @@
                 class="btn-submit"
                 type="submit"
                 class="button"
-                value="C'est parti"
+                value="C'est parti !"
               />
             </form>
             <!--Pop up de remerciement-->

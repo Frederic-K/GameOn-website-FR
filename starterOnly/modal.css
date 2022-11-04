@@ -557,6 +557,17 @@ input[data-error]::after {
   cursor: pointer;
 }
 
+.errorMessage {
+  /*display: none;*/
+  text-align: left;
+  font-size: small;
+  color: red;
+}
+
+.hidden {
+  display: none;
+}
+
 footer {
   padding-left: 2vw;
   padding-right: 2vw;
