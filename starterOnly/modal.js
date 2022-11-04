@@ -106,6 +106,8 @@ function birthdateCheck() {
   }
 };*/
 
+
+
 // Vérifictaion du choix du lieu du tournoi
 
 /*function locationCheck () {
@@ -117,16 +119,24 @@ function birthdateCheck() {
     }
   } 
 };*/
+/*<<<<semble vouloir que toutes radio soit checked...>>>>>>>>>>>>> */
+
 function locationCheck() {
-  for(let checkboxLocation of checkboxLocations) {
-    if (checkboxLocation[0].checked) {
-      errorMessages[4].classList.add("hidden");
-    } else {
-      errorMessages[4].classList.remove("hidden");
-    }
+  if (document.querySelector('input[name = "location"]:checked')) {
+    errorMessages[4].classList.add("hidden");
+  } else {
+    errorMessages[4].classList.remove("hidden");
   }
 };
 
+
+/*function locationCheck() {
+  if (checkboxLocations[0].checked) {
+    errorMessages[4].classList.add("hidden");
+  } else {
+    errorMessages[4].classList.remove("hidden");
+  }
+};*/
 
 // Vérification checkbox "checked" des Conditions Générales d'Utilisation
 function cguCheck() {
