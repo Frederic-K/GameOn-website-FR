@@ -118,25 +118,25 @@ function birthdateCheck() {
       errorMessages[4].classList.remove("hidden");
     }
   } 
-};<<<<semble vouloir que TOUTES les radio soient checked...>>>>>>>>>>>>>*/ 
-
-/*function locationCheck() {
-  for(const checkboxLocation of checkboxLocations) {
-    if (checkboxLocation[0].checked) {
-      errorMessages[4].classList.add("hidden");
-    } else {
-      errorMessages[4].classList.remove("hidden");
-    }
-  }
-};<<<<<<<<<revoi un mssg d'erreur car la const[0] n'est pas définie>>>>>>>>>*/
+};*/
+/*<<<<semble vouloir que toutes radio soit checked...>>>>>>>>>>>>> */
 
 function locationCheck() {
-  if (checkboxLocations[0].checked) {
+  if (document.querySelector('input[name = "location"]:checked')) {
     errorMessages[4].classList.add("hidden");
   } else {
     errorMessages[4].classList.remove("hidden");
   }
 };
+
+
+/*function locationCheck() {
+  if (checkboxLocations[0].checked) {
+    errorMessages[4].classList.add("hidden");
+  } else {
+    errorMessages[4].classList.remove("hidden");
+  }
+};*/
 
 // Vérification checkbox "checked" des Conditions Générales d'Utilisation
 function cguCheck() {
