@@ -21,7 +21,7 @@ const modalContent = document.getElementById("modalContent");
 //const modalBody = document.getElementById("modal-body");
 const modalForm = document.getElementById("modalForm");
 const modalCloseBtn = document.getElementById("modalCloseBtn");
-const btnSubmits = document.getElementsByClassName("btn-submit");
+const btnSubmit = document.getElementById("submitButton");
 const thxPopup = document.getElementById("thxPopup");
 const thxPopupBtn = document.getElementById("thxPopup__btn");
 //const radioLocations = document.querySelectorAll('input[name = "location"]');
@@ -31,7 +31,6 @@ const firstName = document.getElementById("first");
 const lastName = document.getElementById("last");
 const email = document.getElementById("email");
 const birthdate = document.getElementById("birthdate");
-
 const checkboxCGU = document.getElementById("checkbox1");
 
 /* launch modal event
@@ -57,6 +56,12 @@ modalCloseBtn.addEventListener("click", function() {
 
 // Contrôle "Never trust user input!"
 
+let invalidInput = 0;
+
+function invalidInputCheck() {
+  invalidInput++;
+};
+
 // Vérification du prénom
 
 function regexTestName(input) {
@@ -69,6 +74,7 @@ function firstNameCheck() {
     errorMessages[0].classList.add("hidden");
   } else {
     errorMessages[0].classList.remove("hidden");
+    invalidInputCheck();
   }
   /* j'ai vue des fonctions de test avec RegEx qui indique "return false;"
   après le "else" ...*/
@@ -82,6 +88,7 @@ function lastNameCheck() {
     errorMessages[1].classList.add("hidden");
   } else {
     errorMessages[1].classList.remove("hidden");
+    invalidInputCheck();
   }
 };
 
@@ -97,6 +104,7 @@ function emailCheck() {
     errorMessages[2].classList.add("hidden");
   } else {
     errorMessages[2].classList.remove("hidden");
+    invalidInputCheck();
   }
 };
 
@@ -154,6 +162,7 @@ function birthdateCheck() {
     errorMessages[3].classList.add("hidden");
   } else {
     errorMessages[3].classList.remove("hidden");
+    invalidInputCheck();
   }
 };
 
@@ -166,6 +175,7 @@ function locationCheck() {
       breack;
     } else {
       errorMessages[4].classList.remove("hidden");
+      invalidInputCheck();
     }
   }
 };
@@ -179,6 +189,7 @@ function cguCheck() {
     errorMessages[5].classList.add("hidden");
   } else {
     errorMessages[5].classList.remove("hidden");
+    invalidInputCheck();
   }
 };
 
@@ -191,6 +202,7 @@ function submitSouscription() {
   birthdateCheck();
   locationCheck();
   cguCheck();
+  console.log(invalidInput);
 };
 
 //Prévention propagation 
@@ -199,7 +211,6 @@ modalForm.addEventListener("submit", function(event) {
     event.preventDefault();
   });
 
-  
 // Thank you pop-up 
 
 /*for (const btnSubmit of btnSubmits) {
