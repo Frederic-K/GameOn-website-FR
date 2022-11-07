@@ -56,11 +56,8 @@ modalCloseBtn.addEventListener("click", function() {
 
 // Contrôle "Never trust user input!"
 
-let invalidInput = 0;
+let invalidInput = 1;
 
-function invalidInputCheck() {
-  invalidInput++;
-};
 
 // Vérification du prénom
 
@@ -74,7 +71,7 @@ function firstNameCheck() {
     errorMessages[0].classList.add("hidden");
   } else {
     errorMessages[0].classList.remove("hidden");
-    invalidInputCheck();
+    invalidInput++;
   }
   /* j'ai vue des fonctions de test avec RegEx qui indique "return false;"
   après le "else" ...*/
@@ -88,8 +85,9 @@ function lastNameCheck() {
     errorMessages[1].classList.add("hidden");
   } else {
     errorMessages[1].classList.remove("hidden");
-    invalidInputCheck();
+    invalidInput++;
   }
+
 };
 
 // Vérification du mail
@@ -104,7 +102,7 @@ function emailCheck() {
     errorMessages[2].classList.add("hidden");
   } else {
     errorMessages[2].classList.remove("hidden");
-    invalidInputCheck();
+    invalidInput++;
   }
 };
 
@@ -162,7 +160,7 @@ function birthdateCheck() {
     errorMessages[3].classList.add("hidden");
   } else {
     errorMessages[3].classList.remove("hidden");
-    invalidInputCheck();
+    invalidInput++;
   }
 };
 
@@ -175,7 +173,7 @@ function locationCheck() {
       breack;
     } else {
       errorMessages[4].classList.remove("hidden");
-      invalidInputCheck();
+      invalidInput++;
     }
   }
 };
@@ -189,7 +187,7 @@ function cguCheck() {
     errorMessages[5].classList.add("hidden");
   } else {
     errorMessages[5].classList.remove("hidden");
-    invalidInputCheck();
+    invalidInput++;
   }
 };
 
@@ -213,14 +211,24 @@ modalForm.addEventListener("submit", function(event) {
 
 // Thank you pop-up 
 
-/*for (const btnSubmit of btnSubmits) {
-btnSubmit.addEventListener("click", function(e) {
+/*btnSubmit.addEventListener("click", function(e) {
   e.preventDefault();
   modalForm.style.display = "none";
   thxPopup.style.display = "flex";
-  })
-};*/
+  });*/
 
+btnSubmit.addEventListener("click", thankYouPopup());
+
+function thankYouPopup(e) {
+  e.preventDefault();
+  if (invalidInput === 1) {
+    modalForm.style.display = "none";
+    thxPopup.style.display = "flex";
+  } else {
+    thxPopup.style.display = "none";
+  }
+};
+    
 // Fermeture de thank you pop up
 
 thxPopupBtn.addEventListener("click", function() {
