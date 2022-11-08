@@ -73,8 +73,6 @@ function firstNameCheck() {
     errorMessages[0].classList.remove("hidden");
     invalidInput++;
   }
-  /* j'ai vue des fonctions de test avec RegEx qui indique "return false;"
-  après le "else" ...*/
 };
 
 // Vérification du nom 
@@ -106,20 +104,6 @@ function emailCheck() {
   }
 };
 
-/* Vérifictaion de la date de naissance
-function regexTestBirthdate(input) {
-  let regex = /^\d{2}-\d{2}-\d{4}$/g;
-  return regex.test(input);
-}
-function birthdateCheck() {
-  let birthdateValue = birthdate.value;
-  if (regexTestBirthdate(birthdateValue) === true) {
-    errorMessages[3].classList.add("hidden");
-  } else {
-    errorMessages[3].classList.remove("hidden");
-  }
-};*/
-
 // Vérification de la date de naissance
 //Fonctionnelle avec age min
 /*function birthdateCheck() {
@@ -143,15 +127,10 @@ function birthdateCheck() {
   }
 };*/
 
-//TODO : vérification par récupération des jj mm et aaaa via split
-
 // Vérification de la date de naissance
-// Semble être déconseillé l'utilisdation de la parse Date.parse selon le MDN
-// Seul la norme ISO 8601 format (YYYY-MM-DDHH:mm:ss.sssZ) est explicitement supportée.
-// Age min 12ans = 378432000000 millisecondes mais 378691200000 si 12ans calculé depuis le 1/1/1970.
 
 function birthdateCheck() {
-  let ageMin = 378691200000;// 12 ans à partir du 1/1/1970 // 378432000000 = 12ans en millisecondes
+  let ageMin = 378691200000;// 12 ans à partir du 1/1/1970 
   let birthdateVar = Date.parse(birthdate.value) + ageMin; // trans birthdate.value (qui est au format YYYY-MM-DD donc normalement ISO 8601) en millisecondes depuis le 1/1/1970
   let todayDateVar = Date.now();
   console.log(birthdateVar);
@@ -200,7 +179,6 @@ function submitSouscription() {
   birthdateCheck();
   locationCheck();
   cguCheck();
-  console.log(invalidInput);
 };
 
 //Prévention propagation 
@@ -210,14 +188,6 @@ modalForm.addEventListener("submit", function(event) {
   });
 
 // Thank you pop-up 
-
-/*btnSubmit.addEventListener("click", function(e) {
-  e.preventDefault();
-  modalForm.style.display = "none";
-  thxPopup.style.display = "flex";
-  });*/
-
-btnSubmit.addEventListener("click", thankYouPopup());
 
 function thankYouPopup(e) {
   e.preventDefault();
@@ -229,6 +199,8 @@ function thankYouPopup(e) {
   }
 };
     
+btnSubmit.addEventListener("click", thankYouPopup());
+
 // Fermeture de thank you pop up
 
 thxPopupBtn.addEventListener("click", function() {
