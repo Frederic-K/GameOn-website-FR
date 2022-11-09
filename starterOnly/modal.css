@@ -19,8 +19,7 @@ body {
   /*background-image: url("background.png"); ressources absente */
   font-family: var(--font-default);
   font-size: 18px;
-  /*Correction largeur max conformement à la taille maquette*/
-  width: 1440px;
+  /*width: 1440px;*/
   max-height: 1024px;
   margin: 0 auto;
   padding: 25px;
@@ -584,7 +583,7 @@ footer {
       width: 100%;
     }
 }*/
-@media screen and (max-width:1150px) {
+@media screen and (max-width:1190px) {
   body {
     width: 100%;
   }
