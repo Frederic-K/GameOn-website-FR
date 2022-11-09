@@ -16,7 +16,7 @@ body {
   margin: 0;
   display: flex;
   flex-direction: column;
-  background-image: url("background.png");
+  /*background-image: url("background.png"); ressources absente */
   font-family: var(--font-default);
   font-size: 18px;
   /*Correction largeur max conformement à la taille maquette*/
@@ -533,15 +533,15 @@ input[data-error]::after {
   display: none;
 }*/
 
-#thxPopup {
+.thxPopup {
   height: 700px;
-  display: none;
+  display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   gap: 50px;
 }
-#thxPopup h1 {
+.thxPopup h1 {
   font-size: 35px;
   text-align: center;
   color: white;

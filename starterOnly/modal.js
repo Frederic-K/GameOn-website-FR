@@ -71,7 +71,6 @@ function firstNameCheck() {
     errorMessages[0].classList.add("hidden");
   } else {
     errorMessages[0].classList.remove("hidden");
-    invalidInput++;
   }
 };
 
@@ -83,9 +82,7 @@ function lastNameCheck() {
     errorMessages[1].classList.add("hidden");
   } else {
     errorMessages[1].classList.remove("hidden");
-    invalidInput++;
   }
-
 };
 
 // Vérification du mail
@@ -149,7 +146,6 @@ function locationCheck() {
   for (const radioLocation of radioLocations) {
     if (radioLocation.checked) {
       errorMessages[4].classList.add("hidden");
-      breack;
     } else {
       errorMessages[4].classList.remove("hidden");
       invalidInput++;
@@ -172,13 +168,14 @@ function cguCheck() {
 
 // Lancement des fonctions de contrôle au click "submitForm"
 
-function submitSouscription() {
+function validation() {
   firstNameCheck();
   lastNameCheck();
   emailCheck();
   birthdateCheck();
   locationCheck();
   cguCheck();
+
 };
 
 //Prévention propagation 
@@ -199,7 +196,7 @@ function thankYouPopup(e) {
   }
 };
     
-btnSubmit.addEventListener("click", thankYouPopup());
+btnSubmit.addEventListener("click", thankYouPopup);
 
 // Fermeture de thank you pop up
 

@@ -67,7 +67,7 @@
               name="reserve"
               action="index.html"
               method="get"
-              onsubmit="submitSouscription()">
+              >
               <div
                 class="formData">
                 <label>Prénom</label><br>
@@ -113,12 +113,13 @@
               </div>
               <div
                 class="formData">
-                <label>Date de naissance</label><br>
+                <label>Date de naissance (âge min : 12ans)</label><br>
                 <input
                   class="text-control"
                   type="date"
                   id="birthdate"
                   name="birthdate"
+                  
                   required
                 /><br>
                 <div class="errorMessage hidden">
@@ -129,6 +130,9 @@
                 class="formData">
                 <label>À combien de tournois GameOn avez-vous déjà participé ?</label><br>
                 <input type="number" class="text-control" id="quantity" name="quantity" min="0" max="99" required>
+                <div class="errorMessage hidden">
+                  Veuillez renseigner votre nombre de participation (0-99).
+                </div>
               </div>
               <p class="text-label">A quel tournoi souhaitez-vous participer cette année ?</p>
               <div
@@ -200,13 +204,13 @@
                   Portland</label
                 >
                 <div class="errorMessage hidden">
-                  Merci d'indiquer votre souhait.
+                  Merci d'indiquer la ville souhaitée.
                 </div>
               </div>
 
               <div
                 class="formData">
-                <input class="checkbox-input" type="checkbox" id="checkbox1" checked/>
+                <input class="checkbox-input" type="checkbox" id="checkbox1"/>
                 <label class="checkbox2-label" for="checkbox1">
                   <span class="checkbox-icon"></span>
                   J'ai lu et accepté les conditions d'utilisation.
@@ -226,12 +230,11 @@
                 class="btn-submit"
                 type="submit"
                 class="button"
-                id="submitButton"
                 value="C'est parti !"
               />
             </form>
             <!--Pop up de remerciement-->
-            <div id="thxPopup">
+            <div class="thxPopup hidden">
               <h1>Merci pour votre participation !</h1>
               <button id="thxPopup__btn" type="button">Fermer</button>
             </div>
@@ -247,6 +250,7 @@
         Copyright 2014 - 2022, GameOn Inc.
       </p>
     </footer>
-    <script src="modal.js"></script>
+    <!--<script src="modal.js"></script>-->
+    <script src="modalv2.js"></script>
   </body>
 </html>
