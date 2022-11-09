@@ -12,7 +12,7 @@ function editNav() {
 const modalbg = document.getElementsByClassName("bground")[0]; 
 const modalBtns = document.getElementsByClassName("modal-btn");
 const formDatas = document.getElementsByClassName("formData");
-
+const modalContent = document.getElementById("modalContent");
 const modalForm = document.getElementById("modalForm");
 const modalCloseBtn = document.getElementById("modalCloseBtn");
 const thxPopups = document.getElementsByClassName("thxPopup");
