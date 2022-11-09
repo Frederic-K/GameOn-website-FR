@@ -57,6 +57,8 @@ modalCloseBtn.addEventListener("click", function() {
 
 // Vérification du prénom
 
+// fonction de contrôle avec une expression régulière
+
 function regexTestName(input) {
     let regex = /([A-Za-zéùàôöêëèçà]{1,}[A-Za-z-'éùàôöêëèçà]{2,30})/g;
     return regex.test(input);
@@ -75,6 +77,8 @@ function firstNameCheck() {
 
   // Vérification du nom 
   
+  // fonction de contrôle avec une expression régulière
+
 function lastNameCheck() {
     let lastNameValue = lastName.value;
     if (regexTestName(lastNameValue) === false) {
@@ -88,8 +92,10 @@ function lastNameCheck() {
 
 // Fonction de vérification du mail
 
+// fonction de contrôle avec une expression régulière
+
 function regexTestEmail(input) {
-    let regex = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/g;
+    let regex = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/g; //https://www.w3resource.com/javascript/form/email-validation.php
     return regex.test(input);
   };
 
@@ -107,7 +113,7 @@ function emailCheck() {
 // Vérification de la date de naissance
 
 function birthdateCheck() {
-    let ageMin = 378691200000;// 12 ans à partir du 1/1/1970 
+    let ageMin = 378691200000;// 12 ans à partir du 1/1/1970 - https://fr.planetcalc.com/7157/
     let birthdateVar = Date.parse(birthdate.value) + ageMin; // birthdate.value, qui est au format YYYY-MM-DD donc normalement ISO 8601, en millisecondes depuis le 1/1/1970
     let todayDateVar = Date.now(); // récupération de la date du jour en millisecondes depuis 1/1/1970
     console.log(birthdateVar);
@@ -126,10 +132,13 @@ function birthdateCheck() {
 
   // Vérification du nombre de tournoi
 
+  // fonction de contrôle avec une expression régulière 
+
 function regexTestTournament(input) {
   let regex = /^[1-9]{0,1}[0-9]$/g;
   return regex.test(input);
   }; 
+
 function numberOfTournamentCheck() {
   let numberOfTournamentValue = numberTournament.value;
   if ((numberTournament === '') || (numberTournament === null)){
@@ -173,10 +182,14 @@ function cguCheck() {
 
 // Validation du formulaire
 
+// Lancement du contrôle au clic du bouton "c'est parti"
+
 btnSubmit.addEventListener("click", function(e) {
     e.preventDefault();
     validation();
 });
+
+// Contrôle du formulaire et si positif : lancement de la popup de remerciement
 
 function validation() {
     firstNameCheck();
