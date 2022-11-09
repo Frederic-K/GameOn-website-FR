@@ -7,6 +7,8 @@ function editNav() {
     }
 }
 
+// Elements du DOM
+
 const modalbg = document.getElementsByClassName("bground")[0]; 
 const modalBtns = document.getElementsByClassName("modal-btn");
 const formDatas = document.getElementsByClassName("formData");
@@ -27,6 +29,7 @@ const numberTournament = document.getElementById("quantity");
 const radioLocations = document.getElementsByClassName("checkbox--location");
 const checkboxCGU = document.getElementById("checkbox1");
 
+// Variables pour la validation finale du formulaire
 
 let isFirstNameValid = false;
 let isLastNameValid = false;
@@ -105,8 +108,8 @@ function emailCheck() {
 
 function birthdateCheck() {
     let ageMin = 378691200000;// 12 ans à partir du 1/1/1970 
-    let birthdateVar = Date.parse(birthdate.value) + ageMin; // trans birthdate.value (qui est au format YYYY-MM-DD donc normalement ISO 8601) en millisecondes depuis le 1/1/1970
-    let todayDateVar = Date.now();
+    let birthdateVar = Date.parse(birthdate.value) + ageMin; // birthdate.value, qui est au format YYYY-MM-DD donc normalement ISO 8601, en millisecondes depuis le 1/1/1970
+    let todayDateVar = Date.now(); // récupération de la date du jour en millisecondes depuis 1/1/1970
     console.log(birthdateVar);
     console.log(todayDateVar);
     if ((birthdate.value === '') || (birthdate.value === null)){
@@ -120,13 +123,14 @@ function birthdateCheck() {
       isBirthdateValid = true;
     }
 };
+
   // Vérification du nombre de tournoi
 
 function regexTestTournament(input) {
   let regex = /^[1-9]{0,1}[0-9]$/g;
   return regex.test(input);
   }; 
-function numberOfTournament() {
+function numberOfTournamentCheck() {
   let numberOfTournamentValue = numberTournament.value;
   if ((numberTournament === '') || (numberTournament === null)){
     errorMessages[4].classList.remove("hidden");
@@ -179,7 +183,7 @@ function validation() {
     lastNameCheck();
     emailCheck();
     birthdateCheck();
-    numberOfTournament();
+    numberOfTournamentCheck();
     locationCheck();
     cguCheck();
     if (isFirstNameValid && isLastNameValid && isEmailValid && isBirthdateValid && isRadioLocation && isCheckboxCGUValid === true) {

@@ -537,16 +537,22 @@ input[data-error]::after {
   height: 700px;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  /*justify-content: center;*/
   align-items: center;
-  gap: 50px;
+  /*gap: 50px;*/
+  position: relative;
 }
 .thxPopup h1 {
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
   font-size: 35px;
   text-align: center;
   color: white;
 }
 #thxPopup__btn {
+  position: relative;
+  top: 80%;
   width: 150px;
   height: 35px;
   border-radius: 15px;
