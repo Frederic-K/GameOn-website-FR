@@ -626,7 +626,7 @@ footer {
     margin: 0 auto;
   }*/
   .hero-img img {
-    width: 75%;
+    width: 100%;
     border-radius: 10px;
     margin: 40px auto ;
   }
