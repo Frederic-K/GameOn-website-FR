@@ -57,10 +57,10 @@ modalCloseBtn.addEventListener("click", function() {
 
 // Vérification du prénom
 
-// fonction de contrôle avec une expression régulière
+// Fonction de contrôle avec une expression régulière
 
 function regexTestName(input) {
-    let regex = /([A-Za-zéùàôöêëèçà]{1,}[A-Za-z-'éùàôöêëèçà]{2,30})/g;
+    let regex = /([A-Za-zéùàôöêëèçà]{1,}[A-Za-z-'éùàôöêëèçà]{2,30})/g; // créée sur https://regexr.com/
     return regex.test(input);
   };
 
@@ -77,7 +77,7 @@ function firstNameCheck() {
 
   // Vérification du nom 
   
-  // fonction de contrôle avec une expression régulière
+  // Fonction de contrôle avec une expression régulière
 
 function lastNameCheck() {
     let lastNameValue = lastName.value;
@@ -92,7 +92,7 @@ function lastNameCheck() {
 
 // Fonction de vérification du mail
 
-// fonction de contrôle avec une expression régulière
+// Fonction de contrôle avec une expression régulière
 
 function regexTestEmail(input) {
     let regex = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/g; //https://www.w3resource.com/javascript/form/email-validation.php
@@ -114,10 +114,8 @@ function emailCheck() {
 
 function birthdateCheck() {
     let ageMin = 378691200000;// 12 ans à partir du 1/1/1970 - https://fr.planetcalc.com/7157/
-    let birthdateVar = Date.parse(birthdate.value) + ageMin; // birthdate.value, qui est au format YYYY-MM-DD donc normalement ISO 8601, en millisecondes depuis le 1/1/1970
+    let birthdateVar = Date.parse(birthdate.value) + ageMin; // birthdate.value, format YYYY-MM-DD ISO 8601, en millisecondes depuis le 1/1/1970
     let todayDateVar = Date.now(); // récupération de la date du jour en millisecondes depuis 1/1/1970
-    console.log(birthdateVar);
-    console.log(todayDateVar);
     if ((birthdate.value === '') || (birthdate.value === null)){
       errorMessages[3].classList.remove("hidden");
       isBirthdateValid = false;
@@ -132,8 +130,11 @@ function birthdateCheck() {
 
   // Vérification du nombre de tournoi
 
-  // fonction de contrôle avec une expression régulière 
+  // Fonction de contrôle avec une expression régulière 
 
+  // Fonction de vérification que le nombre de tournoi est compris entre 0 et 99
+  // Vérication que le champs n'est pas vide
+  
 function regexTestTournament(input) {
   let regex = /^[1-9]{0,1}[0-9]$/g;
   return regex.test(input);

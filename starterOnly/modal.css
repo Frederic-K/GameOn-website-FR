@@ -76,8 +76,6 @@ p {
 
 .topnav a.active--hidden {
   display: none;
-  /* ou bien : 
-  opacity: 0;*/
 }
 
 .topnav .icon {
@@ -175,17 +173,6 @@ main {
   font-family: var(--font-slab);
 }
 
-/* Modal form */
-/*.button {
-  background: #fe142f;
-  margin-top: 0.5em;
-  padding: 1em;
-  color: #fff;
-  border-radius: 15px;
-  cursor: pointer;
-  font-size: 16px;
-}*/
-
 .button:hover {
   background: #3876ac;
 }
@@ -264,12 +251,7 @@ input {
 .formData[data-error-visible="true"] .text-control {
   border: 2px solid #e54858;
 }
-/* 
-input[data-error]::after {
-    content: attr(data-error);
-    font-size: 0.4em;
-    color: red;
-} */
+
 .checkbox-label,
 .checkbox2-label {
   position: relative;
@@ -504,8 +486,6 @@ input[data-error]::after {
   margin-left: 0px;
 }
 .hero-img {
-  /*width: 100%;*/
-  /*position: relative;*/
   /*Repositionnement grid*/
   grid-column: 2/4;
 }
@@ -513,8 +493,6 @@ input[data-error]::after {
   /*Correction étirement img*/
   height: 100%;
   display: block;
-  /*position: absolute;
-  left: 80px;*/
   margin-left: 80px;
   padding: 0;
 }
@@ -527,11 +505,7 @@ input[data-error]::after {
 }
 .hero-section > .btn-signup {
   display: none;
-}
-
-/*#modalForm {
-  display: none;
-}*/
+}Q
 
 .thxPopup {
   height: 700px;
@@ -582,11 +556,7 @@ footer {
   padding-right: 2vw;
   margin: 0 20px;
 }
-/*@media screen and (max-width: 850px) {
-    .hero-img img {
-      width: 100%;
-    }
-}*/
+
 @media screen and (max-width:1190px) {
   body {
     width: 100%;
@@ -625,9 +595,6 @@ footer {
     font-size: 12px;
     margin-top: 25px;
   }
-  /*.hero-img {
-    margin: 0 auto;
-  }*/
   .hero-img img {
     width: 100%;
     border-radius: 10px;
