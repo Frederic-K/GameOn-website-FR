@@ -60,7 +60,7 @@ modalCloseBtn.addEventListener("click", function() {
 // Fonction de contrôle avec une expression régulière
 
 function regexTestName(input) {
-    let regex = /([A-Za-zéùàôöêëèçà]{1,}[A-Za-z-'éùàôöêëèçà]{2,30})/g; // créée sur https://regexr.com/
+    let regex = /([A-Za-zéùàôöêëèçà]{1,}[A-Za-z-'éùàôöêëèçà]{1,30})/g; // créée sur https://regexr.com/
     return regex.test(input);
   };
 

@@ -505,19 +505,19 @@ input {
 }
 .hero-section > .btn-signup {
   display: none;
-}Q
+}
 
 .thxPopup {
   height: 700px;
   display: flex;
   flex-direction: column;
-  /*justify-content: center;*/
+  justify-content: center;
   align-items: center;
   /*gap: 50px;*/
   position: relative;
 }
 .thxPopup h1 {
-  position: relative;
+  position: absolute;
   top: 50%;
   transform: translateY(-50%);
   font-size: 35px;
@@ -525,7 +525,7 @@ input {
   color: white;
 }
 #thxPopup__btn {
-  position: relative;
+  position: absolute;
   top: 80%;
   width: 150px;
   height: 35px;
