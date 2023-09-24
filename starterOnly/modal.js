@@ -126,6 +126,7 @@ function birthdateCheck() {
       errorMessages[3].classList.add("hidden");
       isBirthdateValid = true;
     }
+    console.log('date', birthdate.value);
 };
 
   // Vérification du nombre de tournoi
@@ -152,6 +153,7 @@ function numberOfTournamentCheck() {
     errorMessages[4].classList.add("hidden");
     isNumberTournament = true;
   }
+  console.log('nb input', numberOfTournamentValue);
 };
 
   // Vérifictaion du choix du lieu du tournoi
